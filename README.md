@@ -129,11 +129,16 @@ The last one takes a minute and prints a lot. It's done when you see `Successful
 Still in `C:\claude-notebook`, run:
 
 ```powershell
-claude mcp add --scope user notebook -- "$PWD\.venv\Scripts\python.exe" -m claude_notebook
+claude mcp add --scope user notebook "$PWD\.venv\Scripts\claude-notebook.exe"
 ```
 
-This tells Claude Code: *"there's a tool server called `notebook`; start it with this Python."*
+This tells Claude Code: *"there's a tool server called `notebook`; start it with this program."*
 `--scope user` makes it available in every folder you use Claude Code in.
+
+> **Why the `.exe` and not `python -m …`?** In PowerShell, `claude` is a script wrapper that silently
+> eats the `--` separator, so `claude mcp add … -- python -m claude_notebook` fails with
+> `unknown option '-m'`. The `claude-notebook.exe` launcher (created in step 5) needs no extra arguments.
+> Mac/Linux: use `"$PWD/.venv/bin/claude-notebook"`.
 
 Check it worked:
 

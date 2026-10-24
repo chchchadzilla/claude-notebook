@@ -30,6 +30,9 @@ redaction list on my own machine *before* Claude sees it — client names become
   become `[Client A]…` — the matcher treats `-` and `_` as word breaks, but leaves `Acmeville` alone.
 - **It reads what's visible, on purpose.** No fragile CSS selectors. If Google redesigns the page,
   you get messier text, not a crash.
+- **PowerShell eats `--`.** `claude` on Windows is a `.ps1` wrapper, and PowerShell drops a bare `--`
+  before passing arguments on — so the usual `claude mcp add name -- python -m pkg` breaks. Registering
+  the package's own `claude-notebook.exe` launcher sidesteps it.
 - **One at a time.** Chrome only lets one program use a profile, so tool calls queue up while a
   sign-in window is open.
 
