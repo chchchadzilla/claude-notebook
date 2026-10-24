@@ -1,0 +1,28 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Secrets and personal data - never commit
+.env
+.env.*
+*.pem
+*.key
+redact.txt
+chrome-profile/
+.claude-notebook/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Claude Code local settings
+.claude/settings.local.json
